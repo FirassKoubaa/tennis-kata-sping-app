@@ -48,8 +48,8 @@ Ce projet est une implémentation complète et professionnelle du Tennis Kata, c
 
 ### Cloner le dépôt
 ```bash
-git clone <votre-url-git>
-cd tennis-kata
+git clone https://github.com/FirassKoubaa/tennis-kata-sping-app.git
+cd tennis-kata-sping-app
 ```
 
 ### Compilation et lancement de l'application
