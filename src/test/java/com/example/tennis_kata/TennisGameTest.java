@@ -69,4 +69,44 @@ class TennisGameTest {
         TennisGame game = new TennisGame();
         game.play("aBaBaA".toUpperCase());
     }
+
+    @Test
+    @DisplayName("Test direct de pointWonBy(String) via sous-classe")
+    void testPointWonByDirect() {
+        class TestableTennisGame extends TennisGame {
+            @Override
+            protected void printScore() { /* no-op for test */ }
+            @Override
+            protected void printWinner(String player) { /* no-op for test */ }
+        }
+        TestableTennisGame game = new TestableTennisGame();
+        game.pointWonBy("A");
+        assertEquals(1, game.playerAScore);
+        game.pointWonBy("B");
+        assertEquals(1, game.playerBScore);
+    }
+
+    @Test
+    @DisplayName("Test de la méthode main(String[]) de TennisGame")
+    void testMainMethodTennisGame() {
+        assertDoesNotThrow(() -> TennisGame.main(new String[]{}));
+    }
+
+    @Test
+    @DisplayName("Test play avec séquence vide")
+    void testPlayWithEmptySequence() {
+        TennisGame game = new TennisGame();
+        game.play("");
+        assertEquals(0, game.playerAScore);
+        assertEquals(0, game.playerBScore);
+    }
+
+    @Test
+    @DisplayName("Test play avec séquence nulle")
+    void testPlayWithNullSequence() {
+        TennisGame game = new TennisGame();
+        game.play(null);
+        assertEquals(0, game.playerAScore);
+        assertEquals(0, game.playerBScore);
+    }
 }
