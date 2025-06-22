@@ -73,3 +73,24 @@ Les tests couvrent la logique métier et l'API REST.
 
 Kata adapté et implémenté en Java Spring Boot.
 
+---
+
+## Exécution avec Docker
+
+L'application peut être exécutée dans un conteneur Docker avec Java 21.
+
+### Étapes
+1. Construire l'image Docker :
+   ```
+   docker build -t tennis-kata-app .
+   ```
+2. Lancer l'application avec Docker Compose :
+   ```
+   docker-compose up
+   ```
+
+L'application sera accessible sur [http://localhost:8081](http://localhost:8081)
+
+### Accès à Swagger UI
+Après le démarrage du conteneur, ouvrez votre navigateur à l'adresse suivante :
+[http://localhost:8081/swagger-ui.html](http://localhost:8081/swagger-ui.html)
