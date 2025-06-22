@@ -35,6 +35,8 @@ Ce projet est une implémentation complète et professionnelle du Tennis Kata, c
   - Rédaction de la JavaDoc sur les classes principales pour faciliter la compréhension et la maintenance du code.
 - **README détaillé** :
   - Ce fichier explique l'installation, l'exécution, les tests, l'accès à Swagger et l'utilisation de Docker.
+- **Couverture de tests avec JaCoCo** :
+  - Intégration du plugin JaCoCo pour mesurer la couverture des tests unitaires et générer un rapport détaillé.
   
 ---
 
@@ -77,6 +79,20 @@ mvn test
 ```
 
 Les tests couvrent la logique métier et l'API REST.
+
+### Générer et afficher la couverture de tests (JaCoCo)
+
+Pour générer le rapport de couverture de tests :
+
+```bash
+mvn clean test
+```
+
+Le rapport JaCoCo sera disponible dans le dossier :
+```
+target/site/jacoco/index.html
+```
+Ouvrez ce fichier dans votre navigateur pour visualiser la couverture des tests.
 
 ---
 
