@@ -96,18 +96,18 @@ Ouvrez ce fichier dans votre navigateur pour visualiser la couverture des tests.
 
 ---
 
+![Screenshot](src/main/resources/static/coverage.png)
+
 ## Utilisation rapide
 
 - Pour tester en ligne de commande :
   - Modifier la méthode `main` de `TennisGame.java` pour changer la séquence.
+    ![Screenshot](src/main/resources/static/tennisGame.png)
 - Pour tester via l'API :
   - Utiliser Swagger ou un outil comme Postman/curl sur l'endpoint `/api/tennis/score/{sequence}`.
+    ![Screenshot](src/main/resources/static/swagger.png)
+    ![Screenshot](src/main/resources/static/testsequenceswagger.png)
 
----
-
-## Auteur
-
-Kata adapté et implémenté en Java Spring Boot.
 
 ---
 
@@ -127,6 +127,13 @@ L'application peut être exécutée dans un conteneur Docker avec Java 21.
 
 L'application sera accessible sur [http://localhost:8081](http://localhost:8081)
 
-### Accès à Swagger UI
+### Accès à Swagger UI via docker
 Après le démarrage du conteneur, ouvrez votre navigateur à l'adresse suivante :
 [http://localhost:8081/swagger-ui.html](http://localhost:8081/swagger-ui.html)
+
+---
+
+## Auteur
+
+Kata adapté et implémenté en Java Spring Boot.
+- Firass Koubaa
