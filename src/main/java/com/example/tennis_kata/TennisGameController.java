@@ -1,18 +1,26 @@
 package com.example.tennis_kata;
 
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.*;
 
+@Validated
 @RestController
 @RequestMapping("/api/tennis")
 public class TennisGameController {
-
+    /**
+     * Calcule et retourne le score du jeu de tennis pour une séquence donnée.
+     * @param sequence chaîne composée de 'A' ou 'B' (insensible à la casse)
+     * @return liste des scores après chaque point
+     */
+    @Operation(summary = "Calcule le score du jeu de tennis pour une séquence de points")
     @GetMapping("/score/{sequence}")
     public List<String> computeScore(@PathVariable String sequence) {
-        if (!sequence.matches("[aAbB]+")) {
+        if (sequence == null || !sequence.matches("[aAbB]+")) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La séquence ne doit contenir que des lettres A ou B.");
         }
         List<String> result = new ArrayList<>();
@@ -32,7 +40,7 @@ public class TennisGameController {
                 result.add("Player " + player + " wins the game");
             }
         };
-        game.play(sequence.replaceAll("\\s", "").toUpperCase());
+        game.play(sequence);
         return result;
     }
 }

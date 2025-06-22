@@ -27,15 +27,14 @@ class TennisGameTest {
     }
 
     @Test
+    @DisplayName("Victoire simple de A")
     void testSimpleWin() {
         TennisGame game = new TennisGame();
         game.play("AAAA");
-        // Pas de capture, juste une assertion simple
-        // String output = outContent.toString();
-        // assertTrue(output.contains("Player A wins the game"));
     }
 
     @Test
+    @DisplayName("Gestion du deuce et de l'avantage")
     void testDeuceAndAdvantage() {
         TennisGame game = new TennisGame();
         game.play("ABABABAB"); // 40-40, deuce
@@ -44,12 +43,14 @@ class TennisGameTest {
     }
 
     @Test
+    @DisplayName("Victoire après avantage")
     void testWinAfterAdvantage() {
         TennisGame game = new TennisGame();
         game.play("ABABABABAA"); // A gagne après avantage
     }
 
     @Test
+    @DisplayName("Séquence invalide")
     void testInvalidSequence() {
         try {
             TennisGame game = new TennisGame();
@@ -63,6 +64,7 @@ class TennisGameTest {
     }
 
     @Test
+    @DisplayName("Insensibilité à la casse")
     void testCaseInsensitive() {
         TennisGame game = new TennisGame();
         game.play("aBaBaA".toUpperCase());

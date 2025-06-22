@@ -1,5 +1,7 @@
 package com.example.tennis_kata;
 
+import java.util.Locale;
+
 public class TennisGame {
     protected int playerAScore = 0;
     protected int playerBScore = 0;
@@ -9,8 +11,16 @@ public class TennisGame {
 
     protected static final int[] POINTS = {0, 15, 30, 40};
 
+    /**
+     * Joue une séquence de points pour le jeu de tennis.
+     * @param sequence chaîne composée de 'A' ou 'B' (insensible à la casse)
+     */
     public void play(String sequence) {
-        for (char c : sequence.toCharArray()) {
+        if (sequence == null || !sequence.matches("[aAbB]+")) {
+            System.err.println("Erreur : la séquence ne doit contenir que des lettres A ou B.");
+            return;
+        }
+        for (char c : sequence.toUpperCase(Locale.ROOT).toCharArray()) {
             if (gameEnded) break;
             if (c == 'A') {
                 pointWonBy("A");
@@ -20,6 +30,10 @@ public class TennisGame {
         }
     }
 
+    /**
+     * Gère le gain d'un point par un joueur.
+     * @param player "A" ou "B"
+     */
     protected void pointWonBy(String player) {
         if (deuce) {
             if (advantage == null) {
@@ -55,6 +69,9 @@ public class TennisGame {
         }
     }
 
+    /**
+     * Affiche le score courant du jeu.
+     */
     protected void printScore() {
         if (deuce && advantage == null) {
             System.out.println("Deuce");
@@ -65,6 +82,10 @@ public class TennisGame {
         }
     }
 
+    /**
+     * Affiche le gagnant du jeu.
+     * @param player "A" ou "B"
+     */
     protected void printWinner(String player) {
         System.out.println("Player " + player + " wins the game");
     }
@@ -72,11 +93,7 @@ public class TennisGame {
     public static void main(String[] args) {
         TennisGame game = new TennisGame();
         String input = "ABABABABAA";
-        if (!input.matches("[aAbB]+")) {
-            System.err.println("Erreur : la séquence ne doit contenir que des lettres A ou B.");
-            return;
-        }
         System.out.println("Simulation pour la séquence : " + input);
-        game.play(input.toUpperCase());
+        game.play(input);
     }
 }

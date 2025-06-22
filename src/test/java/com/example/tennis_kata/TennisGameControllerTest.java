@@ -1,6 +1,7 @@
 package com.example.tennis_kata;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -21,6 +22,7 @@ class TennisGameControllerTest {
     private MockMvc mockMvc;
 
     @BeforeEach
+    @DisplayName("Affichage d'une partie exemple avant chaque test du contrôleur")
     void displayGamePlayDetails() {
         System.out.println("--- Affichage console TennisGame (avant chaque test TennisGameControllerTest) ---");
         TennisGame game = new TennisGame();
@@ -29,6 +31,7 @@ class TennisGameControllerTest {
     }
 
     @Test
+    @DisplayName("Endpoint : score simple et victoire de A")
     void testScoreEndpointSuccess() throws Exception {
         try {
             mockMvc.perform(get("/api/tennis/score/ABABAA"))
@@ -42,6 +45,7 @@ class TennisGameControllerTest {
     }
 
     @Test
+    @DisplayName("Endpoint : gestion du deuce")
     void testScoreEndpointDeuceAndAdvantage() throws Exception {
         try {
             mockMvc.perform(get("/api/tennis/score/ABABABAB"))
@@ -55,11 +59,12 @@ class TennisGameControllerTest {
     }
 
     @Test
+    @DisplayName("Endpoint : séquence invalide (erreur 400)")
     void testScoreEndpointInvalidSequence() throws Exception {
         try {
             mockMvc.perform(get("/api/tennis/score/ABXBA"))
                     .andExpect(status().isBadRequest())
-                    .andExpect(status().reason("La séquence ne doit contenir que des lettres A ou B."));
+                    .andExpect(jsonPath("$.error").value("La séquence ne doit contenir que des lettres A ou B."));
         } catch (Throwable t) {
             t.printStackTrace();
             log.error("Test testScoreEndpointInvalidSequence failed", t);
@@ -68,8 +73,8 @@ class TennisGameControllerTest {
     }
 
     @Test
+    @DisplayName("Affichage console TennisGame depuis le test du contrôleur")
     void testGamePlayConsoleOutput() {
-        // Ce test affiche le détail du jeu dans la console
         TennisGame game = new TennisGame();
         System.out.println("--- Affichage console TennisGame depuis TennisGameControllerTest ---");
         game.play("ABABAA");
