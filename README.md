@@ -18,6 +18,26 @@ Player A wins the game
 
 ---
 
+## Résumé de mon travail
+
+Ce projet est une implémentation complète et professionnelle du Tennis Kata, conçue pour démontrer mes compétences en développement Java et en bonnes pratiques d'architecture logicielle. Voici les principales fonctionnalités et apports que j'ai intégrés :
+
+- **Implémentation fonctionnelle du kata** :
+  - Calcul du score de tennis selon les règles officielles, encapsulé dans la classe métier `TennisGame`.
+  - Exposition d'une API REST via un `RestController` (`TennisGameController`) permettant de calculer le score à partir d'une séquence de points.
+- **Tests unitaires et d'intégration** :
+  - Couverture des cas métier et des endpoints REST pour garantir la fiabilité de l'application.
+- **Documentation interactive** :
+  - Intégration de Swagger UI pour permettre de tester et documenter facilement l'API.
+- **Configuration Docker** :
+  - Ajout d'un `Dockerfile` et d'un `docker-compose.yml` pour faciliter le déploiement et l'exécution de l'application dans un conteneur Java 21.
+- **Documentation technique** :
+  - Rédaction de la JavaDoc sur les classes principales pour faciliter la compréhension et la maintenance du code.
+- **README détaillé** :
+  - Ce fichier explique l'installation, l'exécution, les tests, l'accès à Swagger et l'utilisation de Docker.
+  
+---
+
 ## Installation et Lancement
 
 ### Prérequis
