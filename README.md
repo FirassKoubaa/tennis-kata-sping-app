@@ -87,6 +87,7 @@ Pour générer le rapport de couverture de tests :
 ```bash
 mvn clean test
 ```
+![Screenshot](src/main/resources/static/unitests.png)
 
 Le rapport JaCoCo sera disponible dans le dossier :
 ```
@@ -95,7 +96,6 @@ target/site/jacoco/index.html
 Ouvrez ce fichier dans votre navigateur pour visualiser la couverture des tests.
 
 ---
-
 ![Screenshot](src/main/resources/static/coverage.png)
 
 ## Utilisation rapide
